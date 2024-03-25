@@ -15,3 +15,17 @@ The units in both models are similar; for example, technology costs are given in
 * Merge the two models
 * Save the merged model as *.csv format.
 To print the files, the configuration file *.YAML file must be configured. The configuration file also uses 'otoole convert' commands to print results.
+
+# To run the workflow
+
+1. Both data input files as *.txt.
+2. Convert both input data files from *.txt to *.csv, for example:
+'''
+otoole convert datafile csv ./Ke_CLEWs-kth/data.txt ./csv config.yaml
+'''
+2. Run the code
+'''python
+snakemake -s snakefile_merge --core 1
+'''
+## Funding
+This material has been produced with support from the Climate Compatible Growth Programme (CCG) programme. CCG is funded by UK aid from the UK government. However, the views expressed herein do not necessarily reflect the UK government's official policies.
