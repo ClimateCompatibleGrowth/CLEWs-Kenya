@@ -5,7 +5,7 @@ Merging these models has the potential to capture additional interactions betwee
 ![Workflow](./images/workflow.png)
 *Figure 1. Merging WESM-CLEWs workflow*
 
-The units in both models are similar; for example, technology costs are given in millions of dollars per gigawatt (MM⁄GW). Fuel costs are given in millions of dollars per petajoule (MM⁄PJ). Once both models are in *. CSV format, the Python script/workflow attached is used to:
+Figure 3 provides an overview of the process involved in merging both models. The units in both models are similar; for example, technology costs are given in millions of dollars per gigawatt (MM⁄GW). Fuel costs are given in millions of dollars per petajoule (MM⁄PJ). Once both models are in *.CSV format, the _snakemake_ file attached is used to:
 * Read the common technologies (tech) and fuels. Table 1 shows the common tech and fuel found in both models. 
 * Update the technology and fuel names in the CLEWs model. For instance, change the fuel name 'ELC' in the CLEWs model to 'ELC003,' which is the electricity provided after transmission and distribution in the WESM.
 * Delete repeated common technologies: IMPDSL, IMPELC, IMPKER, IMPLPG in the CLEWs model.
