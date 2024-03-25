@@ -2,4 +2,16 @@
 This repository presents a workflow using open-source energy models explicitly developed for Kenya. The first model is the [Whole Energy System for Kenya (WESM)](https://github.com/ClimateCompatibleGrowth/osemosys_kenya), encompassing power generation, industrial, and transportation sectors, among others. The second model is a Climate, Land, Energy, and Water system [(CLEWs)](https://github.com/robertodawid/Kenya_Clews/tree/main) model, focusing on intricate interdependencies between the energy and land systems within the Kenyan context. The CLEWs model presents the interlinkages evident in sectors such as cooking (representing energy) and agriculture (representing land). While both models address aspects of the energy system, the CLEWs model uniquely integrates additional dimensions such as land and water systems.
 Merging these models has the potential to capture additional interactions between various systems. For instance, the utilization of fossil fuels extends beyond energy generation to activities in the land and water domains, including mechanization and pumping, respectively. Similarly, electricity finds application in residential settings for irrigation and public water distribution, showcasing interdependencies across sectors.
 
+![Workflow](./images/workflow.png)
+*Figure 1. Merging WESM-CLEWs workflow*
 
+The units in both models are similar; for example, technology costs are given in millions of dollars per gigawatt (MM⁄GW). Fuel costs are given in millions of dollars per petajoule (MM⁄PJ). Once both models are in *. CSV format, the Python script/workflow attached is used to:
+* Read the common technologies (tech) and fuels. Table 1 shows the common tech and fuel found in both models. 
+* Update the technology and fuel names in the CLEWs model. For instance, change the fuel name 'ELC' in the CLEWs model to 'ELC003,' which is the electricity provided after transmission and distribution in the WESM.
+* Delete repeated common technologies like those highlighted in grey in Table 1 in the CLEWs model.
+* Update the Region name from the CLEWs model ('RE1') to the name in the WESM ('KENYA').
+* Update the units of emission activity ratio in the merged model to kilotons of CO2 per petajoule (kTon⁄PJ)
+* Remove common techs from the CLEWs model. This also applies to removing repeated technologies in the Sets: TECHNOLOGY and FUEL.
+* Merge the two models
+* Save the merged model as *.csv format.
+To print the files, the configuration file *.YAML file must be configured. The configuration file also uses 'otoole convert' commands to print results.
