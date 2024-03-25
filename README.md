@@ -8,7 +8,7 @@ Merging these models has the potential to capture additional interactions betwee
 The units in both models are similar; for example, technology costs are given in millions of dollars per gigawatt (MM⁄GW). Fuel costs are given in millions of dollars per petajoule (MM⁄PJ). Once both models are in *. CSV format, the Python script/workflow attached is used to:
 * Read the common technologies (tech) and fuels. Table 1 shows the common tech and fuel found in both models. 
 * Update the technology and fuel names in the CLEWs model. For instance, change the fuel name 'ELC' in the CLEWs model to 'ELC003,' which is the electricity provided after transmission and distribution in the WESM.
-* Delete repeated common technologies like those highlighted in grey in Table 1 in the CLEWs model.
+* Delete repeated common technologies: IMPDSL, IMPELC, IMPKER, IMPLPG in the CLEWs model.
 * Update the Region name from the CLEWs model ('RE1') to the name in the WESM ('KENYA').
 * Update the units of emission activity ratio in the merged model to kilotons of CO2 per petajoule (kTon⁄PJ)
 * Remove common techs from the CLEWs model. This also applies to removing repeated technologies in the Sets: TECHNOLOGY and FUEL.
