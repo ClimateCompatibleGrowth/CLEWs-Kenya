@@ -1,0 +1,47 @@
+rule all:
+	input:
+		lp = "Ke_CLEWs_merged/ke_mgd.lp"  
+
+rule lp:
+	input:
+		input_datafile = "Ke_CLEWs_merged/data_mgd_pp.txt",
+		input_model = "model/osemosys_short_pp.txt"
+	output:
+		out_lp = "Ke_CLEWs_merged/ke_mgd.lp"
+	shell:
+		"glpsol -m {input.input_model} -d {input.input_datafile} --wlp {output.out_lp} --check"
+
+rule data_pp:
+	input:
+		input_datafile = "Ke_CLEWs_merged/data_mgd.txt",
+		script = "scr/preprocess_data.py"
+	output:
+		out_datafile = "Ke_CLEWs_merged/data_mgd_pp.txt"
+	shell:
+		"python {input.script} otoole {input.input_datafile} {output.out_datafile}"
+
+rule datafile:
+	input:
+ 		input_yaml = "Ke_CLEWs_merged/config.yaml",
+		input_result = "Ke_CLEWs_merged/csv/TECHNOLOGY.csv"
+	params:
+		input_dir = "Ke_CLEWs_merged/csv"
+	output:
+ 		out_datafile = "Ke_CLEWs_merged/data_mgd.txt"
+	shell:
+ 		"otoole convert csv datafile {params.input_dir} {output.out_datafile} {input.input_yaml}"
+
+rule merge:
+	input:
+		config_file = "Ke_CLEWs_merged/config.yaml",
+		script = "scr/read_clean_WESM.py"
+	params:
+		out_dir = "Ke_CLEWs_merged/csv",
+	output:
+		technology = "Ke_CLEWs_merged/csv/TECHNOLOGY.csv"
+
+	shell:
+		"""
+		python {input.script} {params.out_dir} {input.config_file}
+		"""
+

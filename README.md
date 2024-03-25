@@ -20,12 +20,13 @@ To print the files, the configuration file *.YAML file must be configured. The c
 
 1. Both data input files as *.txt.
 2. Convert both input data files from *.txt to *.csv, for example:
-'''
+```
 otoole convert datafile csv ./Ke_CLEWs-kth/data.txt ./csv config.yaml
-'''
+```
 2. Run the code
-'''python
+```
 snakemake -s snakefile_merge --core 1
-'''
+```
+3. After running the workflow, the output is an LP file. The LP file can be solved using GLPK, CPLEX, GUROBI, or CBC solvers. Then, the SOL file can be converted to a CSV or Excel file using the Otoole package. Additional examples in [Otoole](https://otoole.readthedocs.io/en/latest/examples.html)
 ## Funding
 This material has been produced with support from the Climate Compatible Growth Programme (CCG) programme. CCG is funded by UK aid from the UK government. However, the views expressed herein do not necessarily reflect the UK government's official policies.
