@@ -12,7 +12,7 @@ def main(out_dir, config_file):
     '''
     Location of the parent directory of the csv files from otoole
     '''
-    WESM_path = './Ke_WESM_ucl/csv_V1'
+    WESM_path = './Ke_WESM_ucl/csv'
     CLEWs_path = './Ke_CLEWs_kth/csv'
     model_merged_path = out_dir
     config_file_path = config_file
